@@ -77,10 +77,23 @@ h2 {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    flex-direction: column;
+    gap: 10px;
 }
 
 i {
     color: red;
     cursor: pointer;
     margin-left: 5px;
+}
+
+.clear {
+    cursor: pointer;
+    text-decoration: underline;
+    color: red;
+    transition: 0.4s ease;
+}
+
+.clear:hover {
+    color: black;
 }
