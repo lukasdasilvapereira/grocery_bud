@@ -1,27 +1,33 @@
 let inputEl = document.querySelector(".input-el");
 let heroEl = document.querySelector(".hero-el");
 let clearItems = document.querySelector(".clear")
-let count = 0;
 
 function submit() {
-    heroEl.innerHTML += `<div class="hero hero${count + 1}">
+    if (inputEl.value === "") {
+        window.alert("You need to write something")
+    } else {
+        heroEl.innerHTML += `<div class="hero">
                     <p class="text">${inputEl.value}</p>
                     <div>
-                        <input type="checkbox" name="checkbox" id='checkbox' checked>
-                        <i class="fa-solid fa-trash trash"onclick="deleteItem()"></i>
+                        <input type="checkbox" name="checkbox" id='checkbox'>
+                        <i class="fa-solid fa-trash trash"onclick="deleteItem(this)"></i>
                     </div>
                 </div>`
-                inputEl.value = ""
-                count++
+        inputEl.value = ""
+    }
 }
 
-function deleteItem() {
-    let trash = document.querySelector(".fa-trash")
-    heroEl(`hero${count}`).innerHTML = ""
+function deleteItem(el) {
+    el.parentElement.parentElement.remove()
 }
 
+inputEl.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        submit()
+    }
+})
 
-clearItems.addEventListener("click", function() {
+
+clearItems.addEventListener("click", function () {
     heroEl.textContent = ""
-    count = 0;
 })

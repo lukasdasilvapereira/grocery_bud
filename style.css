@@ -68,9 +68,10 @@ h2 {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    background-color: darkgray;
+    background-color: white;
+    border: 2px solid black;
     padding: 10px 10px;
-    color: white;
+    color: black;
 }
 
 .hero-el {
